@@ -2,6 +2,10 @@
 var express = require('express');
 var app = express();
 
+//Models
+var User = require('./models/user');
+var Clothing = require('./models/clothing');
+
 //Debugging
 var logger = require('morgan');
 app.use(logger('dev'));
