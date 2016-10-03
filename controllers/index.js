@@ -41,7 +41,10 @@ router.post('/login', passport.authenticate('local'), function (req,res) {
     } else {
       User.findOne({username: req.session.passport.user}).exec()
       .then(function(user) {
-        res.redirect('/closet')
+        console.log(user);
+        res.render('closet/index', {
+          user: user
+        })
       })
       .catch(function(err) {
         console.log(err);
@@ -50,6 +53,12 @@ router.post('/login', passport.authenticate('local'), function (req,res) {
     }
   })
 })
+
+//Log out user
+router.delete('/signout', function (req,res) {
+  req.logout();
+  res.redirect('/')
+});
 
 
 module.exports = router;
