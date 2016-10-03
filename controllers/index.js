@@ -32,6 +32,24 @@ router.post('/signup', function (req,res) {
   )
 });
 
+//Log in user
+router.post('/login', passport.authenticate('local'), function (req,res) {
+  req.session.save(function (err) {
+    if (err) {
+      console.log(err);
+      res.redirect('/')
+    } else {
+      User.findOne({username: req.session.passport.user}).exec()
+      .then(function(user) {
+        res.redirect('/closet')
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.redirect('/')
+      })
+    }
+  })
+})
 
 
 module.exports = router;
