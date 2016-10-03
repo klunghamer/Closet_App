@@ -1,6 +1,6 @@
 # Closet_App
 
-# Entity Relationship Diagram:
+### Entity Relationship Diagram:
 
 #### Clothing Model
 * type
