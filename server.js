@@ -9,7 +9,7 @@ app.use(logger('dev'));
 //Handlebars
 var hbs = require('hbs');
 app.set('view engine', 'hbs');
-require('handlebar-form-helpers').register(hbs.handlebars);
+require('handlebars-form-helpers').register(hbs.handlebars);
 
 //Mongoose
 var mongoose = require('mongoose');
