@@ -13,4 +13,4 @@
 * username
 * password
 * createdAt
-* clothes
+* [Clothing]
