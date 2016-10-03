@@ -51,4 +51,12 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+//Controllers
+var userController = require('./controllers/index');
+var clothingController = require('./controllers/closet');
+
+//Routing
+app.use('/', userController);
+// app.use('/clothing', clothingController);
+
 app.listen(4000);
