@@ -6,7 +6,10 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 
 router.get('/', function (req,res) {
-  res.send('hiiiii')
+  res.render('home', {
+    title: 'Home page',
+    user: 'user'
+  })
 });
 
 

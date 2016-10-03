@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <header>
+      {{#if user}}
+      <form action="/signout?_method=DELETE" method="POST">
+        <button type="submit" name="submit">Sign Out</button>
+      </form>
+      {{else}}
+      {{/if}}
+    </header>
+    Welcome to your closet!
+    {{{body}}}
+  </body>
+</html>
