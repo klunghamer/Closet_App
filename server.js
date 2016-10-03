@@ -6,6 +6,12 @@ var app = express();
 var logger = require('morgan');
 app.use(logger('dev'));
 
+//Handle forms
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
+
 //Handlebars
 var hbs = require('hbs');
 app.set('view engine', 'hbs');
@@ -22,5 +28,23 @@ db.on('error', function(err) {
 db.once('open', function() {
   console.log('database connected!');
 })
+
+//Passport
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
+app.use(flash());
+
+app.use(require('express-session')({
+  secret: 'michigan',
+  resave: false,
+  saveUninitialized: false
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.listen(4000);
