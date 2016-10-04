@@ -83,6 +83,7 @@ router.get('/:id/edit', function (req,res) {
   .then(function(user) {
     var item = user.clothes.id(req.params.id)
     res.render('closet/edit', {
+      // user: user,
       item: item,
       title: 'Update Item'
     })
@@ -103,6 +104,18 @@ router.put('/:id', function (req,res) {
     user.save();
     console.log(user);
     res.redirect(`/closet/${req.params.id}/show`);
+  })
+})
+
+//Delete clothing item
+router.delete('/:id', function (req,res) {
+  User.findOne({username: req.session.passport.user}).exec()
+  .then(function(user) {
+    var item = user.clothes.id(req.params.id);
+    // console.log(item.category);
+    item.remove();
+    user.save();
+    res.redirect(`/closet/${user._id}`);
   })
 })
 
