@@ -68,6 +68,7 @@ router.get('/:id/show', function(req,res) {
     // })
     // return item;
     res.render('closet/show', {
+      user: user,
       item: item
     })
   })
@@ -88,6 +89,7 @@ router.get('/:id/edit', function (req,res) {
   })
 })
 
+//Edit clothing item
 router.put('/:id', function (req,res) {
   User.findOne({username: req.session.passport.user}).exec()
   .then(function(user) {
