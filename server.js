@@ -21,6 +21,9 @@ var hbs = require('hbs');
 app.set('view engine', 'hbs');
 require('handlebars-form-helpers').register(hbs.handlebars);
 
+//Static Assets
+app.use(express.static(__dirname + '/public'));
+
 //Mongoose
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
