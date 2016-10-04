@@ -88,4 +88,20 @@ router.get('/:id/edit', function (req,res) {
   })
 })
 
+router.put('/:id', function (req,res) {
+  User.findOne({username: req.session.passport.user}).exec()
+  .then(function(user) {
+    var item = user.clothes.id(req.params.id);
+    // console.log(item.category);
+    item.category = req.body.category;
+    item.brand = req.body.brand;
+    item.color = req.body.color;
+    item.size = req.body.size;
+    item.imageURL = req.body.imageURL;
+    user.save();
+    console.log(user);
+    res.redirect(`/closet/${req.params.id}/show`);
+  })
+})
+
 module.exports = router;

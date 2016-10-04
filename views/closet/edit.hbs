@@ -2,7 +2,7 @@
 <h2> Update Clothing Details </h2>
 <main>
   <p> Went shopping? Tell us more! </p>
-  <form class="new-clothing" method='POST' action='../{{item._id}}?_method=PATCH'>
+  <form class="new-clothing" method='POST' action='/closet/{{item._id}}?_method=PUT'>
     <label for='category'>Category:</label>
     <select name='category'>
       //select option last picked
@@ -25,6 +25,8 @@
     <input type='submit' value='Yay Clothes!'>
   </form>
 </main>
+
+{{item._id}}
 <!-- <aside>
   <form class="delete-pokemon" method='POST' action='../{{item._id}}?_method=DELETE'>
     <input type='submit' value='Delete Listing'/>
