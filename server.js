@@ -57,6 +57,6 @@ var clothingController = require('./controllers/closet');
 
 //Routing
 app.use('/', userController);
-// app.use('/clothing', clothingController);
+app.use('/closet', clothingController);
 
 app.listen(4000);
