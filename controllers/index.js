@@ -41,8 +41,8 @@ router.post('/login', passport.authenticate('local'), function (req,res) {
     } else {
       User.find({}).exec()
       .then(function(users) {
-        console.log(users);
-        console.log(req.user);
+        // console.log(users);
+        // console.log(req.user);
         res.render('users', {
           users: users,
           user: req.user
