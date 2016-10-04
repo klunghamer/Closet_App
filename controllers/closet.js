@@ -14,7 +14,8 @@ router.get('/:id', function(req,res) {
   .then(function(user) {
     // console.log('this is user', user);
     res.render('closet/index', {
-      user: user
+      user: user,
+      title: 'Your Closet'
     })
   })
 });
@@ -24,9 +25,27 @@ router.get('/:id/new', function(req,res) {
   User.findById(req.params.id).exec()
   .then(function(user) {
     res.render('closet/new', {
-      user: user
+      user: user,
+      title: 'New Clothing Item'
     })
   })
+})
+
+//Create new clothing item
+router.post('/', function (req,res) {
+  console.log(req.session.passport.user);
+  User.find({username: req.session.passport.user}).exec()
+  .then(function(result) {
+    console.log(result);
+  })
+  // var({
+  //   category: req.body.category,
+  //   brand: req.body.brand,
+  //   color: req.body.color,
+  //   size: req.body.size,
+  //   imageURL: req.body.imageURL
+  // })
+  res.redirect('/:id');
 })
 
 module.exports = router;
