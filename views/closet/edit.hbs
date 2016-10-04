@@ -18,7 +18,7 @@
     <label for='brand'>Brand:</label>
     <input name='brand' value="{{item.brand}}">
     <label for='color'>Color:</label>
-    <input name='color' value="{{item.color}}"><br>
+    <input name='color' value="{{item.color}}">
     <label for='size'>Size:</label>
     <input name='size' value="{{item.size}}">
     <label for='imageURL'>Image URL:</label>
@@ -32,4 +32,6 @@
     <input type='submit' value='Delete Listing'/>
   </form>
 </aside>
-<a href='/closet/{{item._id}}/show'> < Back </a>
+<footer class='stay-bottom'>
+  <a href='/closet/{{item._id}}/show'> < Back </a>
+</footer>

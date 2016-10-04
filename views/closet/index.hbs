@@ -2,10 +2,11 @@
 
 {{#each user.clothes}}
   <ul>
-    <li><a href="/closet/{{_id}}/show">Show<img src="{{imageURL}}"/></a></li>
+    <li class="closet-list"><a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a></li>
   </ul>
 {{/each}}
 
 <footer>
-  <a href="/closet/{{user._id}}/new">Add clothes to your closet!</a>
+  <a href="/closet/{{user._id}}/new">Add clothes to your closet</a> |
+  <a href="/users">Checkout more closets!</a>
 </footer>

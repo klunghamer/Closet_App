@@ -15,6 +15,12 @@ header, footer {
   margin-top: 2vh;
 }
 
+.closet-list {
+  float: left;
+  /*clear: both;*/
+  margin: .5em;
+}
+
 img {
   width: 300px;
   height: 300px;
@@ -27,4 +33,24 @@ a {
 
 ul {
   list-style: none;
+}
+
+footer {
+  clear: both;
+  width: 100vw;
+  margin-bottom: .5em;
+}
+
+.stay-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-clothing, .delete-clothing {
+  width: 30vw;
 }

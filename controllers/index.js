@@ -62,6 +62,16 @@ router.post('/login', passport.authenticate('local'), function (req,res) {
   })
 })
 
+//Added route that allows anyone to see the list of
+router.get('/users', function (req,res) {
+  User.find({}).exec()
+  .then(function(users) {
+    res.render('users', {
+      users: users
+    });
+  })
+})
+
 //Log out user
 router.delete('/signout', function (req,res) {
   req.logout();
