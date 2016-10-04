@@ -23,7 +23,9 @@ router.get('/:id', function(req,res) {
 router.get('/:id/new', function(req,res) {
   User.findById(req.params.id).exec()
   .then(function(user) {
-    res.render('closet/new')
+    res.render('closet/new', {
+      user: user
+    })
   })
 })
 

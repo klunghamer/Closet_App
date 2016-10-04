@@ -9,8 +9,14 @@ var User = require('../models/user');
 router.get('/', function (req,res) {
   res.render('home', {
     title: 'Home page',
+    message: req.flash('info', 'Hello!')
   })
 });
+
+//Users page
+// router.get('/users', function(req,res) {
+//   res.render('users')
+// })
 
 //Sign up user and go back to landing page
 router.post('/signup', function (req,res) {
@@ -28,9 +34,10 @@ router.post('/signup', function (req,res) {
         console.log(user);
       }
       res.redirect('/')
+      })
     }
-  )
-});
+  );
+// });
 
 //Log in user
 router.post('/login', passport.authenticate('local'), function (req,res) {
