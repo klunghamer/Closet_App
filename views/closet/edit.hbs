@@ -13,6 +13,7 @@
       <option value='shoes'>shoes</option>
       <option value='socks'>socks</option>
       <option value='accessories'>accessories</option>
+      <option value="{{item.category}}" selected>{{item.category}}</option>
     </select>
     <label for='brand'>Brand:</label>
     <input name='brand' value="{{item.brand}}">
@@ -26,7 +27,6 @@
   </form>
 </main>
 
-{{item._id}}
 <!-- <aside>
   <form class="delete-pokemon" method='POST' action='../{{item._id}}?_method=DELETE'>
     <input type='submit' value='Delete Listing'/>
