@@ -57,15 +57,23 @@ router.post('/', function (req,res) {
 })
 
 //Show form for updating items
-router.get('/:id/edit', function(req,res) {
+router.get('/:id/show', function(req,res) {
   console.log(req.params.id);
-  User.findOne({username: req.session.passport.user})
-  // .then(function(user) {
-  //   return user.clothes.findById(req.params.id)
-  // })
-  .then(function(result) {
-    console.log(result);
+  // var id = String(req.params.id)
+  User.findOne({username: req.session.passport.user}).exec()
+  .then(function(user) {
+    var item = user.clothes.id(req.params.id)
+    // .findIndex(function(clothes) {
+    //   return clothes._id === req.params.id;
+    // })
+    // return item;
+    res.render('closet/show', {
+      item: item
+    })
   })
+  // .then(function(result) {
+  //   console.log(result);
+  // })
 })
 
 module.exports = router;
