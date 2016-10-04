@@ -4,8 +4,6 @@
 <main>
   <p> Went shopping? Tell us more! </p>
   <form class="new-clothing" method='POST' action='/closet'>
-    <!-- <label for='username'>Username:</label>
-    <input name='username'> -->
     <label for='category'>Category:</label>
     <select name='category'>
       <option value='jacket'>jacket</option>
@@ -28,4 +26,6 @@
   </form>
 </main>
 
-<a href="/closet/{{user._id}}">Go back to your closet!</a>
+<footer>
+  <a href="/closet/{{user._id}}">Go back to your closet!</a>
+</footer>

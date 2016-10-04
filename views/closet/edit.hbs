@@ -1,7 +1,7 @@
 
 <h2> Update Clothing Details </h2>
 <main>
-  <p> Went shopping? Tell us more! </p>
+  <p> Need to change something {{user.username}}? Tell us more! </p>
   <form class="new-clothing" method='POST' action='/closet/{{item._id}}?_method=PUT'>
     <label for='category'>Category:</label>
     <select name='category'>

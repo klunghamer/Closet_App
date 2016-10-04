@@ -83,7 +83,7 @@ router.get('/:id/edit', function (req,res) {
   .then(function(user) {
     var item = user.clothes.id(req.params.id)
     res.render('closet/edit', {
-      // user: user,
+      user: user,
       item: item,
       title: 'Update Item'
     })

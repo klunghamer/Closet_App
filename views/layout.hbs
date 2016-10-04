@@ -7,13 +7,18 @@
   </head>
   <body>
     <header>
-      {{#if user}}
-      <form action="/signout?_method=DELETE" method="POST">
-        <button type="submit" name="submit">Sign Out</button>
-      </form>
-      {{else}}
-      {{/if}}
+      <div class="sign-out">
+        {{#if user}}
+        <form action="/signout?_method=DELETE" method="POST">
+          <button type="submit" name="submit">Sign Out</button>
+        </form>
+        {{else}}
+        {{/if}}
+      </div>
+      <h1>Custom Closets</h1>
     </header>
-    {{{body}}}
+    <div class="container">
+      {{{body}}}
+    </div>
   </body>
 </html>

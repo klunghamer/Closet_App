@@ -1,9 +1,11 @@
-<h1>{{user.username}}'s Closet</h1>
+<h2>{{user.username}}'s Closet</h2>
 
 {{#each user.clothes}}
   <ul>
-    <li><a href="/closet/{{_id}}/show">Show</a><img src="{{imageURL}}"/></li>
+    <li><a href="/closet/{{_id}}/show">Show<img src="{{imageURL}}"/></a></li>
   </ul>
 {{/each}}
 
-<a href="/closet/{{user._id}}/new">Add clothes to your closet!</a>
+<footer>
+  <a href="/closet/{{user._id}}/new">Add clothes to your closet!</a>
+</footer>
