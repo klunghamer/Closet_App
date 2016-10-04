@@ -56,4 +56,16 @@ router.post('/', function (req,res) {
   })
 })
 
+//Show form for updating items
+router.get('/:id/edit', function(req,res) {
+  console.log(req.params.id);
+  User.findOne({username: req.session.passport.user})
+  // .then(function(user) {
+  //   return user.clothes.findById(req.params.id)
+  // })
+  .then(function(result) {
+    console.log(result);
+  })
+})
+
 module.exports = router;
