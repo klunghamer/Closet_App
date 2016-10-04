@@ -33,19 +33,27 @@ router.get('/:id/new', function(req,res) {
 
 //Create new clothing item
 router.post('/', function (req,res) {
-  console.log(req.session.passport.user);
-  User.find({username: req.session.passport.user}).exec()
+  var user = String(req.session.passport.user);
+  User.find({username: user}).exec()
+  .then(function(user) {
+    user[0].clothes.push({
+      category: req.body.category,
+      brand: req.body.brand,
+      color: req.body.color,
+      size: req.body.size,
+      imageURL: req.body.imageURL
+    })
+    return user[0].save();
+  })
   .then(function(result) {
     console.log(result);
   })
-  // var({
-  //   category: req.body.category,
-  //   brand: req.body.brand,
-  //   color: req.body.color,
-  //   size: req.body.size,
-  //   imageURL: req.body.imageURL
-  // })
-  res.redirect('/:id');
+  .then(function() {
+    return User.findOne({username: req.session.passport.user})
+  })
+  .then(function(user){
+    res.redirect(`/closet/${user._id}`);
+  })
 })
 
 module.exports = router;
