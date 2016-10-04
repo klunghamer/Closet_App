@@ -7,6 +7,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 var Clothing = require('../models/clothing');
 
+//Show user's closet
 router.get('/:id', function(req,res) {
   // var id = req.params.id;
   User.findById(req.params.id).exec()
@@ -18,5 +19,12 @@ router.get('/:id', function(req,res) {
   })
 });
 
+//Show form to edit user's closet
+router.get('/:id/new', function(req,res) {
+  User.findById(req.params.id).exec()
+  .then(function(user) {
+    res.render('closet/new')
+  })
+})
 
 module.exports = router;

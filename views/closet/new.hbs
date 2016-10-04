@@ -1,0 +1,27 @@
+
+<h2>Add to Your Closet {{user.username}}</h2>
+
+<main>
+  <p> Went shopping? Add to your closet! </p>
+  <form class="new-clothing" method='POST' action='/closet'>
+    <label for='category'>Category:</label>
+    <select name='category'>
+      <option value='jacket'>jacket</option>
+      <option value='pants'>pants</option>
+      <option value='shirt'>shirt</option>
+      <option value='shoes'>shoes</option>
+      <option value='socks'>socks</option>
+      <option value='accessories'>accessories</option>
+    </select>
+    <label for='brand'>Brand:</label>
+    <input name='brand'>
+    <label for='color'>Color:</label>
+    <input name='color'><br>
+    <label for='size'>Size:</label>
+    <input name='size'>
+    <label for='imageURL'>Image URL:</label>
+    <input name='imageURL'>
+
+    <input type='submit' value='Yay Clothes!'>
+  </form>
+</main>
