@@ -39,11 +39,13 @@ router.post('/login', passport.authenticate('local'), function (req,res) {
       console.log(err);
       res.redirect('/')
     } else {
-      User.findOne({username: req.session.passport.user}).exec()
-      .then(function(user) {
-        console.log(user);
-        res.render('closet/index', {
-          user: user
+      User.find({}).exec()
+      .then(function(users) {
+        console.log(users);
+        console.log(req.user);
+        res.render('users', {
+          users: users,
+          user: req.user
         })
       })
       .catch(function(err) {
