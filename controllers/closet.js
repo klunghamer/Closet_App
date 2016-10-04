@@ -56,9 +56,9 @@ router.post('/', function (req,res) {
   })
 })
 
-//Show form for updating items
+//Show items
 router.get('/:id/show', function(req,res) {
-  console.log(req.params.id);
+  // console.log(req.params.id);
   // var id = String(req.params.id)
   User.findOne({username: req.session.passport.user}).exec()
   .then(function(user) {
@@ -74,6 +74,18 @@ router.get('/:id/show', function(req,res) {
   // .then(function(result) {
   //   console.log(result);
   // })
+})
+
+//Show edit page
+router.get('/:id/edit', function (req,res) {
+  User.findOne({username: req.session.passport.user}).exec()
+  .then(function(user) {
+    var item = user.clothes.id(req.params.id)
+    res.render('closet/edit', {
+      item: item,
+      title: 'Update Item'
+    })
+  })
 })
 
 module.exports = router;

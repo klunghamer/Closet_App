@@ -1,0 +1,33 @@
+
+<h2> Update Clothing Details </h2>
+<main>
+  <p> Went shopping? Tell us more! </p>
+  <form class="new-clothing" method='POST' action='../{{item._id}}?_method=PATCH'>
+    <label for='category'>Category:</label>
+    <select name='category'>
+      //select option last picked
+      <option value='jacket'>jacket</option>
+      <option value='dress'>dress</option>
+      <option value='pants'>pants</option>
+      <option value='shirt'>shirt</option>
+      <option value='shoes'>shoes</option>
+      <option value='socks'>socks</option>
+      <option value='accessories'>accessories</option>
+    </select>
+    <label for='brand'>Brand:</label>
+    <input name='brand' value="{{item.brand}}">
+    <label for='color'>Color:</label>
+    <input name='color' value="{{item.color}}"><br>
+    <label for='size'>Size:</label>
+    <input name='size' value="{{item.size}}">
+    <label for='imageURL'>Image URL:</label>
+    <input name='imageURL' value="{{item.imageURL}}">
+    <input type='submit' value='Yay Clothes!'>
+  </form>
+</main>
+<!-- <aside>
+  <form class="delete-pokemon" method='POST' action='../{{item._id}}?_method=DELETE'>
+    <input type='submit' value='Delete Listing'/>
+  </form>
+</aside>
+<a href='/closet/{{_id}}'> < Back </a> -->
