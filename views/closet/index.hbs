@@ -2,7 +2,7 @@
 
 {{#each user.clothes}}
   <ul>
-    <li class="closet-list"><a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a></li>
+    <li class="closet-list"><a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>{{user}}</li>
   </ul>
 {{/each}}
 
@@ -10,3 +10,11 @@
   <a href="/closet/{{user._id}}/new">Add clothes to your closet</a> |
   <a href="/users">Checkout more closets!</a>
 </footer>
+
+
+<!-- {{#if user}}
+<form action="/signout?_method=DELETE" method="POST">
+  <button type="submit" name="submit">Sign Out</button>
+</form>
+{{else}}
+{{/if}} -->

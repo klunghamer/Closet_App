@@ -8,6 +8,26 @@ var User = require('../models/user');
 var Clothing = require('../models/clothing');
 
 //Show user's closet
+// router.get('/:id', function(req,res) {
+//   if (!req.user || req.user._id != req.params.id) {
+//     User.findById(req.params.id).exec()
+//     .then(function(user) {
+//       res.render('closet/index', {
+//         user: user,
+//         title: `${user.username}'s Closet`,
+//       })
+//     })
+//   } else {
+//     User.findById(req.params.id).exec()
+//     .then(function(user) {
+//       res.render('closet/index', {
+//         user: user,
+//         title: `${user.username}'s Closet`,
+//         test: 'test' })
+//     })
+//   }
+// });
+
 router.get('/:id', function(req,res) {
   // var id = req.params.id;
   User.findById(req.params.id).exec()
@@ -15,7 +35,7 @@ router.get('/:id', function(req,res) {
     // console.log('this is user', user);
     res.render('closet/index', {
       user: user,
-      title: 'Your Closet'
+      title: `${user.username}'s Closet`
     })
   })
 });
@@ -57,24 +77,25 @@ router.post('/', function (req,res) {
 })
 
 //Show items
-router.get('/:id/show', function(req,res) {
-  // console.log(req.params.id);
-  // var id = String(req.params.id)
-  User.findOne({username: req.session.passport.user}).exec()
+// router.get('/:id/show', function(req,res) {
+//   User.findOne({username: req.session.passport.user}).exec()
+//   .then(function(user) {
+//     var item = user.clothes.id(req.params.id)
+//     res.render('closet/show', {
+//       user: user,
+//       item: item
+//     })
+//   })
+// })
+router.get('/:id/show', function (req,res) {
+  User.findOne({'clothes._id': req.params.id}).exec()
   .then(function(user) {
     var item = user.clothes.id(req.params.id)
-    // .findIndex(function(clothes) {
-    //   return clothes._id === req.params.id;
-    // })
-    // return item;
     res.render('closet/show', {
       user: user,
       item: item
     })
   })
-  // .then(function(result) {
-  //   console.log(result);
-  // })
 })
 
 //Show edit page
