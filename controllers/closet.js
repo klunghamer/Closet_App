@@ -12,9 +12,18 @@ router.get('/:id', function(req,res) {
   if (!req.user || req.user._id != req.params.id) {
     User.findById(req.params.id).exec()
     .then(function(user) {
+      // console.log('this >', user.clothes[0].category);
+      var accessories = [];
+      for(var i in user.clothes) {
+        if(user.clothes[i].category === 'accessories') {
+          accessories.push(user.clothes[i]);
+        }
+      }
+      console.log(accessories);
       res.render('closet/index', {
         user: user,
         title: `${user.username}'s Closet`,
+        accessories: accessories
       })
     })
   } else {
@@ -83,13 +92,13 @@ router.get('/:id/show', function (req,res) {
   })
   .then(function(id) {
     if (!req.user || req.user._id != id) {
-      console.log('wrong');
       User.findOne({'clothes._id': req.params.id}).exec()
       .then(function(user) {
         var item = user.clothes.id(req.params.id);
         res.render('closet/show', {
           user: user,
-          item: item
+          item: item,
+          title: `${user.username}'\s ${item.category}`
         })
       })
     } else {
@@ -99,7 +108,8 @@ router.get('/:id/show', function (req,res) {
         res.render('closet/show', {
           user: user,
           item: item,
-          test: 'test'
+          test: 'test',
+          title: `${user.username}'\s' ${item.category}`
         })
       })
     }

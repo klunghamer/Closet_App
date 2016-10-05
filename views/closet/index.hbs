@@ -6,17 +6,14 @@
   </ul>
 {{/each}}
 
+<h3>Accessories</h3>
+{{#each accessories}}
+  <img src="{{imageURL}}"/>
+{{/each}}
+
 <footer>
   {{#if test}}
     <a href="/closet/{{user._id}}/new">Add clothes to your closet</a> |
   {{/if}}
   <a href="/users">Checkout more closets!</a>
 </footer>
-
-
-<!-- {{#if user}}
-<form action="/signout?_method=DELETE" method="POST">
-  <button type="submit" name="submit">Sign Out</button>
-</form>
-{{else}}
-{{/if}} -->

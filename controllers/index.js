@@ -12,10 +12,6 @@ router.get('/', function (req,res) {
   })
 });
 
-//Users page
-// router.get('/users', function(req,res) {
-//   res.render('users')
-// })
 
 //Sign up user and go back to landing page
 router.post('/signup', function (req,res) {
@@ -51,7 +47,8 @@ router.post('/login', passport.authenticate('local'), function (req,res) {
         // console.log(req.user);
         res.render('users', {
           users: users,
-          user: req.user
+          user: req.user,
+          title: 'Closets'
         })
       })
       .catch(function(err) {
@@ -62,12 +59,14 @@ router.post('/login', passport.authenticate('local'), function (req,res) {
   })
 })
 
-//Added route that allows anyone to see the list of
+//Added route that allows anyone to see the list of users
 router.get('/users', function (req,res) {
   User.find({}).exec()
   .then(function(users) {
     res.render('users', {
-      users: users
+      users: users,
+      user: req.user,
+      title: 'Closets'
     });
   })
 })
