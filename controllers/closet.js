@@ -20,19 +20,44 @@ router.get('/:id', function(req,res) {
         }
       }
       console.log(accessories);
+      var pants = [];
+      for(var i in user.clothes) {
+        if(user.clothes[i].category === 'pants') {
+          pants.push(user.clothes[i]);
+        }
+      }
+      console.log(pants);
       res.render('closet/index', {
         user: user,
         title: `${user.username}'s Closet`,
-        accessories: accessories
+        accessories: accessories,
+        pants: pants
       })
     })
   } else {
     User.findById(req.params.id).exec()
     .then(function(user) {
+      var accessories = [];
+      for(var i in user.clothes) {
+        if(user.clothes[i].category === 'accessories') {
+          accessories.push(user.clothes[i]);
+        }
+      }
+      console.log(accessories);
+      var pants = [];
+      for(var i in user.clothes) {
+        if(user.clothes[i].category === 'pants') {
+          pants.push(user.clothes[i]);
+        }
+      }
+      console.log(pants);
       res.render('closet/index', {
         user: user,
         title: `${user.username}'s Closet`,
-        test: 'test' })
+        test: 'test',
+        accessories: accessories,
+        pants: pants
+       })
     })
   }
 });
