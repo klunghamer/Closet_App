@@ -78,11 +78,31 @@ router.post('/', function (req,res) {
 router.get('/:id/show', function (req,res) {
   User.findOne({'clothes._id': req.params.id}).exec()
   .then(function(user) {
-    var item = user.clothes.id(req.params.id)
-    res.render('closet/show', {
-      user: user,
-      item: item
-    })
+    var id = user.id;
+    return id;
+  })
+  .then(function(id) {
+    if (!req.user || req.user._id != id) {
+      console.log('wrong');
+      User.findOne({'clothes._id': req.params.id}).exec()
+      .then(function(user) {
+        var item = user.clothes.id(req.params.id);
+        res.render('closet/show', {
+          user: user,
+          item: item
+        })
+      })
+    } else {
+      User.findOne({'clothes._id': req.params.id}).exec()
+      .then(function(user) {
+        var item = user.clothes.id(req.params.id);
+        res.render('closet/show', {
+          user: user,
+          item: item,
+          test: 'test'
+        })
+      })
+    }
   })
 })
 

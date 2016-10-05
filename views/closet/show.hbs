@@ -9,6 +9,8 @@
   </section>
 </main>
 <footer>
-  <a href='/closet/{{item._id}}/edit'> Edit this Item </a> |
+  {{#if test}}
+    <a href='/closet/{{item._id}}/edit'> Edit this Item </a> |
+  {{/if}}
   <a href='/closet/{{user._id}}'>Back to closet!</a>
 </footer>
