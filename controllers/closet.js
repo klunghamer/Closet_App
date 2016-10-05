@@ -7,38 +7,36 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 var Clothing = require('../models/clothing');
 
-//Show user's closet
-// router.get('/:id', function(req,res) {
-//   if (!req.user || req.user._id != req.params.id) {
-//     User.findById(req.params.id).exec()
-//     .then(function(user) {
-//       res.render('closet/index', {
-//         user: user,
-//         title: `${user.username}'s Closet`,
-//       })
-//     })
-//   } else {
-//     User.findById(req.params.id).exec()
-//     .then(function(user) {
-//       res.render('closet/index', {
-//         user: user,
-//         title: `${user.username}'s Closet`,
-//         test: 'test' })
-//     })
-//   }
-// });
-
+// Show user's closet
 router.get('/:id', function(req,res) {
-  // var id = req.params.id;
-  User.findById(req.params.id).exec()
-  .then(function(user) {
-    // console.log('this is user', user);
-    res.render('closet/index', {
-      user: user,
-      title: `${user.username}'s Closet`
+  if (!req.user || req.user._id != req.params.id) {
+    User.findById(req.params.id).exec()
+    .then(function(user) {
+      res.render('closet/index', {
+        user: user,
+        title: `${user.username}'s Closet`,
+      })
     })
-  })
+  } else {
+    User.findById(req.params.id).exec()
+    .then(function(user) {
+      res.render('closet/index', {
+        user: user,
+        title: `${user.username}'s Closet`,
+        test: 'test' })
+    })
+  }
 });
+
+// router.get('/:id', function(req,res) {
+//   User.findById(req.params.id).exec()
+//   .then(function(user) {
+//     res.render('closet/index', {
+//       user: user,
+//       title: `${user.username}'s Closet`
+//     })
+//   })
+// });
 
 //Show form to edit user's closet
 router.get('/:id/new', function(req,res) {
@@ -77,16 +75,6 @@ router.post('/', function (req,res) {
 })
 
 //Show items
-// router.get('/:id/show', function(req,res) {
-//   User.findOne({username: req.session.passport.user}).exec()
-//   .then(function(user) {
-//     var item = user.clothes.id(req.params.id)
-//     res.render('closet/show', {
-//       user: user,
-//       item: item
-//     })
-//   })
-// })
 router.get('/:id/show', function (req,res) {
   User.findOne({'clothes._id': req.params.id}).exec()
   .then(function(user) {
