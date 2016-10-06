@@ -80,4 +80,11 @@ var clothingController = require('./controllers/closet');
 app.use('/', userController);
 app.use('/closet', clothingController);
 
+//dotenv
+require('dotenv').config();
+console.log(process.env.S3_BUCKET_NAME);
+console.log(process.env.AWS_ACCESS_KEY_ID);
+console.log(process.env.AWS_SECRET_ACCESS_KEY);
+
+
 app.listen(process.env.PORT || 3000);
