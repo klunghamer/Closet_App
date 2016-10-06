@@ -21,6 +21,15 @@ var hbs = require('hbs');
 app.set('view engine', 'hbs');
 require('handlebars-form-helpers').register(hbs.handlebars);
 
+//Custom handlebars
+hbs.registerHelper('checkCategory', function (index, type, options) {
+  if(index == type){
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
 //Static Assets
 app.use(express.static(__dirname + '/public'));
 

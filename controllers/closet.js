@@ -12,51 +12,20 @@ router.get('/:id', function(req,res) {
   if (!req.user || req.user._id != req.params.id) {
     User.findById(req.params.id).exec()
     .then(function(user) {
-      // console.log('this >', user.clothes[0].category);
-      var accessories = [];
-      for(var i in user.clothes) {
-        if(user.clothes[i].category === 'accessories') {
-          accessories.push(user.clothes[i]);
-        }
-      }
-      console.log(accessories);
-      var pants = [];
-      for(var i in user.clothes) {
-        if(user.clothes[i].category === 'pants') {
-          pants.push(user.clothes[i]);
-        }
-      }
-      console.log(pants);
       res.render('closet/index', {
         user: user,
         title: `${user.username}'s Closet`,
-        accessories: accessories,
-        pants: pants
+        clothes: user.clothes
       })
     })
   } else {
     User.findById(req.params.id).exec()
     .then(function(user) {
-      var accessories = [];
-      for(var i in user.clothes) {
-        if(user.clothes[i].category === 'accessories') {
-          accessories.push(user.clothes[i]);
-        }
-      }
-      console.log(accessories);
-      var pants = [];
-      for(var i in user.clothes) {
-        if(user.clothes[i].category === 'pants') {
-          pants.push(user.clothes[i]);
-        }
-      }
-      console.log(pants);
       res.render('closet/index', {
         user: user,
+        clothes: user.clothes,
         title: `${user.username}'s Closet`,
-        test: 'test',
-        accessories: accessories,
-        pants: pants
+        test: 'test'
        })
     })
   }
