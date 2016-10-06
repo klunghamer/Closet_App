@@ -36,7 +36,7 @@ app.use(express.static(__dirname + '/public'));
 //Mongoose
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/closet');
+// mongoose.connect('mongodb://localhost/closet');
 var db = mongoose.connection;
 db.on('error', function(err) {
   console.log(err);
@@ -46,7 +46,7 @@ db.once('open', function() {
 })
 
 //Config heroku
-var mongoURI = proces.env.MONGODB_URI || 'mongodb://localhost/closet';
+var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/closet';
 mongoose.connect(mongoURI);
 
 //Passport
