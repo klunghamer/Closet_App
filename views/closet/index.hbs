@@ -1,54 +1,55 @@
 <h2>{{user.username}}'s Closet</h2>
 
-<h3>Jackets</h3>
-{{#each clothes}}
-  {{#checkCategory category 'jacket'}}
-      <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
-  {{/checkCategory}}
-{{/each}}
+<main class='index-main'>
+  <h3>Jackets</h3>
+  {{#each clothes}}
+    {{#checkCategory category 'jacket'}}
+        <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
+    {{/checkCategory}}
+  {{/each}}
 
-<h3>Shirts</h3>
-{{#each clothes}}
-  {{#checkCategory category 'shirt'}}
-      <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
-  {{/checkCategory}}
-{{/each}}
+  <h3>Shirts</h3>
+  {{#each clothes}}
+    {{#checkCategory category 'shirt'}}
+        <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
+    {{/checkCategory}}
+  {{/each}}
 
-<h3>Dresses</h3>
-{{#each clothes}}
-  {{#checkCategory category 'dress'}}
-      <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
-  {{/checkCategory}}
-{{/each}}
+  <h3>Dresses</h3>
+  {{#each clothes}}
+    {{#checkCategory category 'dress'}}
+        <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
+    {{/checkCategory}}
+  {{/each}}
 
-<h3>Pants</h3>
-{{#each clothes}}
-  {{#checkCategory category 'pants'}}
-      <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
-  {{/checkCategory}}
-{{/each}}
+  <h3>Pants</h3>
+  {{#each clothes}}
+    {{#checkCategory category 'pants'}}
+        <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
+    {{/checkCategory}}
+  {{/each}}
 
-<h3>Socks</h3>
-{{#each clothes}}
-  {{#checkCategory category 'socks'}}
-      <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
-  {{/checkCategory}}
-{{/each}}
+  <h3>Socks</h3>
+  {{#each clothes}}
+    {{#checkCategory category 'socks'}}
+        <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
+    {{/checkCategory}}
+  {{/each}}
 
-<h3>Shoes</h3>
-{{#each clothes}}
-  {{#checkCategory category 'shoes'}}
-      <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
-  {{/checkCategory}}
-{{/each}}
+  <h3>Shoes</h3>
+  {{#each clothes}}
+    {{#checkCategory category 'shoes'}}
+        <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
+    {{/checkCategory}}
+  {{/each}}
 
-<h3>Accessories</h3>
-{{#each clothes}}
-  {{#checkCategory category 'accessories'}}
-      <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
-  {{/checkCategory}}
-{{/each}}
-
+  <h3>Accessories</h3>
+  {{#each clothes}}
+    {{#checkCategory category 'accessories'}}
+        <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
+    {{/checkCategory}}
+  {{/each}}
+</main>
 
 
 
