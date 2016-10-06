@@ -45,6 +45,10 @@ db.once('open', function() {
   console.log('database connected!');
 })
 
+//Config heroku
+var mongoURI = proces.env.MONGODB_URI || 'mongodb://localhost/closet';
+mongoose.connect(mongoURI);
+
 //Passport
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
@@ -76,4 +80,4 @@ var clothingController = require('./controllers/closet');
 app.use('/', userController);
 app.use('/closet', clothingController);
 
-app.listen(4000);
+app.listen(process.env.PORT || 3000);

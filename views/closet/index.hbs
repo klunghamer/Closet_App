@@ -14,9 +14,23 @@
   {{/checkCategory}}
 {{/each}}
 
+<h3>Dresses</h3>
+{{#each clothes}}
+  {{#checkCategory category 'dress'}}
+      <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
+  {{/checkCategory}}
+{{/each}}
+
 <h3>Pants</h3>
 {{#each clothes}}
   {{#checkCategory category 'pants'}}
+      <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
+  {{/checkCategory}}
+{{/each}}
+
+<h3>Socks</h3>
+{{#each clothes}}
+  {{#checkCategory category 'socks'}}
       <a href="/closet/{{_id}}/show"><img src="{{imageURL}}"/></a>
   {{/checkCategory}}
 {{/each}}
