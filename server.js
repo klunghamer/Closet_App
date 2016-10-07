@@ -10,6 +10,10 @@ var Clothing = require('./models/clothing');
 var logger = require('morgan');
 app.use(logger('dev'));
 
+//AWS
+require('dotenv').config();
+var AWS = require('aws-sdk');
+
 //Handle forms
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
@@ -72,6 +76,40 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+
+AWS.config.update({accessKeyId: process.env.AWS_ACCESS_KEY_ID , secretAccessKey: process.env.AWS_SECRET_KEY  });
+AWS.config.region = 'us-standard';
+app.post('/addImage', function (req, res) {
+    var s3 = new AWS.S3();
+    var params = {Bucket: 'closets', Key: req.body.file, ContentType: 'png' };
+    s3.getSignedUrl('putObject', params, function(err, url) {
+        if(err) console.log(err);
+        res.json({url: url});
+    });
+});
+
+// form post to /addImage
+//
+// pass in { filename: file.name, type: file.type }
+// $scope.upload = function(file) {
+//     // Get The PreSigned URL
+//     $http.post('/s' ,{ filename: file.name, type: file.type })
+//       .success(function(resp) {
+//         Perform The Push To S3
+//         $http.put(resp.url, file, {headers: {'Content-Type': file.type}})
+//           .success(function(resp) {
+//             //Finally, We're done
+//             alert('Upload Done!')
+//           })
+//           .error(function(resp) {
+//             alert("An Error Occurred Attaching Your File");
+//           });
+//       })
+//       .error(function(resp) {
+//         alert("An Error Occurred Attaching Your File");
+//       });
+//   };
+
 //Controllers
 var userController = require('./controllers/index');
 var clothingController = require('./controllers/closet');
@@ -79,12 +117,5 @@ var clothingController = require('./controllers/closet');
 //Routing
 app.use('/', userController);
 app.use('/closet', clothingController);
-
-//dotenv
-require('dotenv').config();
-console.log(process.env.S3_BUCKET_NAME);
-console.log(process.env.AWS_ACCESS_KEY_ID);
-console.log(process.env.AWS_SECRET_ACCESS_KEY);
-
 
 app.listen(process.env.PORT || 3000);

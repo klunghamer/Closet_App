@@ -8,7 +8,7 @@ var User = require('../models/user');
 //Landing page
 router.get('/', function (req,res) {
   res.render('home', {
-    title: 'Home page'
+    title: 'Custom Closets'
   })
 });
 
