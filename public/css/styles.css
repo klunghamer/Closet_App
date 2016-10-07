@@ -10,6 +10,7 @@ header, footer {
   border-radius: 5px;
   border: 5px solid white;
   width: 95vw;
+  margin: 0 auto;
 }
 
 header {
@@ -35,25 +36,18 @@ footer {
   margin-bottom: 3em;
 }
 
-.home-footer {
-  /*display: flex;
-  flex-direction: column;*/
-  /*height: 100px;*/
-}
 
 .index-main {
   margin-bottom: 5em;
 }
 
 .sign-out {
-  /*float: right;*/
-  margin-right: 1vw;
+
   margin-top: 4vh;
 }
 
 .closet-list {
   float: left;
-  /*clear: both;*/
   margin: .5em;
 }
 
@@ -91,6 +85,13 @@ input {
   bottom: 0;
 }
 
+.users-main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 .users {
   white: blue;
   background-color: rgba(150, 158, 165, 0.7);
@@ -99,8 +100,7 @@ input {
   padding: .5em;
   text-align: center;
   border-radius: 5px;
-  float: left;
-  margin: 0 1em 0 1em;
+  /*margin: 0 1em 0 1em;*/
 }
 
 .users:hover {

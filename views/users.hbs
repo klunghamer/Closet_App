@@ -1,7 +1,9 @@
 <h2>Welcome {{user.username}}! Check out your friends' closets below:</h2>
 
-{{#each users}}
-  <ul>
-    <a href="/closet/{{_id}}"> <li class="users">{{username}}</li></a>
-  </ul>
-{{/each}}
+<main class="users-main">
+  {{#each users}}
+    <ul>
+      <a href="/closet/{{_id}}"> <li class="users">{{username}}</li></a>
+    </ul>
+  {{/each}}
+</main>
