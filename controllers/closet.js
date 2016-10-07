@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var AWS = require('aws-sdk')
+var multer = require('multer');
+var multerS3 = require('multer-s3');
 // mongoose.Promise = global.Promise;
 
 var User = require('../models/user');
@@ -33,15 +36,6 @@ router.get('/:id', function(req,res) {
   }
 });
 
-// router.get('/:id', function(req,res) {
-//   User.findById(req.params.id).exec()
-//   .then(function(user) {
-//     res.render('closet/index', {
-//       user: user,
-//       title: `${user.username}'s Closet`
-//     })
-//   })
-// });
 
 //Show form to edit user's closet
 router.get('/:id/new', function(req,res) {
@@ -53,33 +47,6 @@ router.get('/:id/new', function(req,res) {
     })
   })
 })
-
-//amazon
-router.get('/imageUpload', (req, res) => {
-  const s3 = new aws.S3();
-  const fileName = req.query['file-name'];
-  const fileType = req.query['file-type'];
-  const s3Params = {
-    Bucket: S3_BUCKET_NAME,
-    Key: fileName,
-    Expires: 60,
-    ContentType: fileType,
-    ACL: 'public-read'
-  };
-
-  s3.getSignedUrl('putObject', s3Params, (err, data) => {
-    if(err){
-      console.log(err);
-      return res.end();
-    }
-    const returnData = {
-      signedRequest: data,
-      url: `https://${S3_BUCKET_NAME}.s3.amazonaws.com/${fileName}`
-    };
-    res.write(JSON.stringify(returnData));
-    res.end();
-  });
-});
 
 //Create new clothing item
 router.post('/', function (req,res) {

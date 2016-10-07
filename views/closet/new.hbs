@@ -3,19 +3,8 @@
 
 <main>
   <p> Went shopping? Tell us more! </p>
-  <!-- <form action="/addImage" method="post">
-    <input name="file" type="file">
-    <br>
-    <input type="submit"> -->
 
-    <!-- example 2 -->
-
-    <!-- <img id="preview" src="/images/default.png"> -->
-</form>
-  <form class="new-clothing" method='POST' action='/closet' enctype="multipart/form-data">
-    <input type="file" id="file-input">
-    <p id="status">Please select a file</p>
-    <input type="hidden" id="closet-url" name="closet-url" value="/images/default.png">
+  <form class="new-clothing" action='/closet' method='POST' enctype="multipart/form-data">
     <label for='category'>Category:</label>
     <select name='category'>
       <option value='jacket'>jacket</option>
@@ -31,10 +20,10 @@
     <label for='color'>Color:</label>
     <input name='color'><br>
     <label for='size'>Size:</label>
-    <input name='size'>
-    <label for='imageURL'>Image URL:</label>
-    <input name='imageURL'>
-    <input type='submit' value='Yay Clothes!'>
+    <input name='size'><br>
+    <p id="status">Please select an image</p>
+    <input type="text" id="file-input" name='imageURL'><br>
+    <button type='submit'>Yay Clothes!</button>
   </form>
 </main>
 

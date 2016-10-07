@@ -2,6 +2,13 @@
 var express = require('express');
 var app = express();
 
+//AWS
+require('dotenv').config();
+var AWS = require('aws-sdk');
+
+//Express fileupload
+var fileUpload = require('express-fileupload');
+
 //Models
 var User = require('./models/user');
 var Clothing = require('./models/clothing');
@@ -10,9 +17,9 @@ var Clothing = require('./models/clothing');
 var logger = require('morgan');
 app.use(logger('dev'));
 
-//AWS
-require('dotenv').config();
-var AWS = require('aws-sdk');
+//multer
+var multer = require('multer');
+var multerS3 = require('multer-s3');
 
 //Handle forms
 var bodyParser = require('body-parser');
@@ -54,20 +61,10 @@ var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/closet';
 mongoose.connect(mongoURI);
 
 
-//Express fileupload
-var fileUpload = require('express-fileupload');
-app.use(fileUpload());
-
 //Passport
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var flash = require('connect-flash');
-// var cookieParser = require('cookie-parser');
-// var session = require('express-session');
-
-// app.use(cookieParser('michigan'));
-// app.use(session({ cookie: { maxAge: 60000 }}));
-// app.use(flash());
 
 app.use(require('express-session')({
   secret: 'michigan',
@@ -81,39 +78,14 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use(fileUpload());
+app.engine('html', require('ejs').renderFile);
+
+const S3_BUCKET_NAME = process.env.S3_BUCKET_NAME;
 
 AWS.config.update({accessKeyId: process.env.AWS_ACCESS_KEY_ID , secretAccessKey: process.env.AWS_SECRET_KEY  });
 AWS.config.region = 'us-standard';
-app.post('/addImage', function (req, res) {
-    var s3 = new AWS.S3();
-    var params = {Bucket: 'closets', Key: req.body.file, ContentType: 'png' };
-    s3.getSignedUrl('putObject', params, function(err, url) {
-        if(err) console.log(err);
-        res.json({url: url});
-    });
-});
 
-// form post to /addImage
-//
-// pass in { filename: file.name, type: file.type }
-// $scope.upload = function(file) {
-//     // Get The PreSigned URL
-//     $http.post('/s' ,{ filename: file.name, type: file.type })
-//       .success(function(resp) {
-//         Perform The Push To S3
-//         $http.put(resp.url, file, {headers: {'Content-Type': file.type}})
-//           .success(function(resp) {
-//             //Finally, We're done
-//             alert('Upload Done!')
-//           })
-//           .error(function(resp) {
-//             alert("An Error Occurred Attaching Your File");
-//           });
-//       })
-//       .error(function(resp) {
-//         alert("An Error Occurred Attaching Your File");
-//       });
-//   };
 
 //Controllers
 var userController = require('./controllers/index');
