@@ -11,20 +11,22 @@ var Clothing = require('../models/clothing');
 router.get('/:id', function(req,res) {
   if (!req.user || req.user._id != req.params.id) {
     User.findById(req.params.id).exec()
-    .then(function(user) {
+    .then(function(closet) {
       res.render('closet/index', {
-        user: user,
-        title: `${user.username}'s Closet`,
-        clothes: user.clothes
+        user: req.user,
+        closet: closet,
+        title: `${closet.username}'s Closet`,
+        clothes: closet.clothes
       })
     })
   } else {
     User.findById(req.params.id).exec()
-    .then(function(user) {
+    .then(function(closet) {
       res.render('closet/index', {
-        user: user,
-        clothes: user.clothes,
-        title: `${user.username}'s Closet`,
+        user: req.user,
+        closet: closet,
+        clothes: closet.clothes,
+        title: `${closet.username}'s Closet`,
         test: 'test'
        })
     })
@@ -87,23 +89,25 @@ router.get('/:id/show', function (req,res) {
   .then(function(id) {
     if (!req.user || req.user._id != id) {
       User.findOne({'clothes._id': req.params.id}).exec()
-      .then(function(user) {
-        var item = user.clothes.id(req.params.id);
+      .then(function(closet) {
+        var item = closet.clothes.id(req.params.id);
         res.render('closet/show', {
-          user: user,
+          user: req.user,
+          closet: closet,
           item: item,
-          title: `${user.username}'\s ${item.category}`
+          title: `${closet.username}'\s ${item.category}`
         })
       })
     } else {
       User.findOne({'clothes._id': req.params.id}).exec()
-      .then(function(user) {
-        var item = user.clothes.id(req.params.id);
+      .then(function(closet) {
+        var item = closet.clothes.id(req.params.id);
         res.render('closet/show', {
-          user: user,
+          user: req.user,
+          closet: closet,
           item: item,
           test: 'test',
-          title: `${user.username}'\s' ${item.category}`
+          title: `${closet.username}'\s' ${item.category}`
         })
       })
     }

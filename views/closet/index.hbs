@@ -1,4 +1,4 @@
-<h2>{{user.username}}'s Closet</h2>
+<h2>{{closet.username}}'s Closet</h2>
 
 <main class='index-main'>
   <h3>Jackets</h3>
@@ -55,7 +55,7 @@
 
 <footer>
   {{#if test}}
-    <a href="/closet/{{user._id}}/new">Add clothes to your closet</a> |
+    <a href="/closet/{{closet._id}}/new">Add clothes to your closet</a> |
   {{/if}}
   <a href="/users">Checkout more closets!</a>
 </footer>

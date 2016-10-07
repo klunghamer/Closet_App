@@ -1,5 +1,5 @@
 
-<h2> {{user.username}}'s {{item.category}} </h2>
+<h2> {{closet.username}}'s {{item.category}} </h2>
 <main class="index-main">
   <img src="{{item.imageURL}}" class="itemPic"/>
   <section class="show-wrapper">
@@ -12,5 +12,5 @@
   {{#if test}}
     <a href='/closet/{{item._id}}/edit'> Edit this Item </a> |
   {{/if}}
-  <a href='/closet/{{user._id}}'>Back to closet!</a>
+  <a href='/closet/{{closet._id}}'>Back to closet!</a>
 </footer>
