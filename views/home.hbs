@@ -17,7 +17,7 @@
 
   <form action="/login" method="POST">
     <div>
-      <label for="text">Log in: </label>
+      <label for="text">{{#if test}}<span class="animated flash">Log in:</span>{{else}}Log in:{{/if}} </label>
       <input type="text" name="username" placeholder="username">
       <input type="password" name="password" placeholder="password">
       <button type="submit" name="submit"> Log in</button>

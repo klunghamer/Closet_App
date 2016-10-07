@@ -25,14 +25,15 @@ router.post('/signup', function (req,res) {
     function(err, user) {
       if (err) {
         console.log(err);
+        res.redirect('/')
       } else {
         console.log(user);
+        res.render('home', {
+          test: 'test'
+        })
       }
-      res.redirect('/')
-      })
-    }
-  );
-// });
+    })
+});
 
 //Log in user
 router.post('/login', passport.authenticate('local'), function (req,res) {

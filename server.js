@@ -53,6 +53,11 @@ db.once('open', function() {
 var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/closet';
 mongoose.connect(mongoURI);
 
+
+//Express fileupload
+var fileUpload = require('express-fileupload');
+app.use(fileUpload());
+
 //Passport
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
