@@ -22,7 +22,17 @@ header {
 footer {
   position: fixed;
   bottom: 0;
-  margin-bottom: .5em;
+  margin-bottom: 0em;
+}
+
+.logo {
+  height: 6em;
+  width: 6em;
+  /*margin-top: 3.5vh;*/
+}
+
+h1 {
+  /*font-size*/
 }
 
 .home-container {
@@ -42,7 +52,6 @@ footer {
 }
 
 .sign-out {
-
   margin-top: 4vh;
 }
 
@@ -95,9 +104,10 @@ input {
 .users {
   white: blue;
   background-color: rgba(150, 158, 165, 0.7);
-  width: 15vw;
-  font-size: 3vw;
-  padding: .5em;
+  /*width: 15vw;*/
+  /*height: 5vh;*/
+  /*font-size: 3vw;*/
+  padding: 1em;
   text-align: center;
   border-radius: 5px;
   /*margin: 0 1em 0 1em;*/
