@@ -2,10 +2,9 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var AWS = require('aws-sdk')
-var multer = require('multer');
-var multerS3 = require('multer-s3');
-// mongoose.Promise = global.Promise;
+// var AWS = require('aws-sdk')
+// var multer = require('multer');
+// var multerS3 = require('multer-s3');
 
 var User = require('../models/user');
 var Clothing = require('../models/clothing');

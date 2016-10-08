@@ -4,7 +4,7 @@
 <main>
   <p> Went shopping? Tell us more! </p>
 
-  <form class="new-clothing" action='/closet' method='POST' enctype="multipart/form-data">
+  <form class="new-clothing" action='/closet' method='POST'>
     <label for='category'>Category:</label>
     <select name='category'>
       <option value='jacket'>jacket</option>
@@ -21,8 +21,8 @@
     <input name='color'><br>
     <label for='size'>Size:</label>
     <input name='size'><br>
-    <p id="status">Please select an image</p>
-    <input type="text" id="file-input" name='imageURL'><br>
+    <label for='imageURL'>Image URL:</label>
+    <input type="text" name='imageURL'><br>
     <button type='submit'>Yay Clothes!</button>
   </form>
 </main>

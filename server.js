@@ -3,11 +3,11 @@ var express = require('express');
 var app = express();
 
 //AWS
-require('dotenv').config();
-var AWS = require('aws-sdk');
+// require('dotenv').config();
+// var AWS = require('aws-sdk');
 
 //Express fileupload
-var fileUpload = require('express-fileupload');
+// var fileUpload = require('express-fileupload');
 
 //Models
 var User = require('./models/user');
@@ -78,13 +78,14 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use(fileUpload());
-app.engine('html', require('ejs').renderFile);
-
-const S3_BUCKET_NAME = process.env.S3_BUCKET_NAME;
-
-AWS.config.update({accessKeyId: process.env.AWS_ACCESS_KEY_ID , secretAccessKey: process.env.AWS_SECRET_KEY  });
-AWS.config.region = 'us-standard';
+//Attempt to use AWS for file upload
+// app.use(fileUpload());
+// app.engine('html', require('ejs').renderFile);
+//
+// const S3_BUCKET_NAME = process.env.S3_BUCKET_NAME;
+//
+// AWS.config.update({accessKeyId: process.env.AWS_ACCESS_KEY_ID , secretAccessKey: process.env.AWS_SECRET_KEY  });
+// AWS.config.region = 'us-standard';
 
 
 //Controllers
