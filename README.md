@@ -4,12 +4,11 @@ This application allows users to login, add photos, and manage their personal cl
 
 ### Planning
 
-Wireframe were constructed to set up the original structure of the site and plan where information could be found for the user :[wireframes.pdf](wireframes.pdf).
+Wireframe were constructed to set up the original structure of the site and plan where information could be found for the user: [wireframes.pdf](wireframes.pdf).
 
-[user stories](https://trello.com/b/Z6VBLVXy/custom-closets-user-stories)
+[User stories](https://trello.com/b/Z6VBLVXy/custom-closets-user-stories) are hosted on trello, which helped organize how the user would interact with the application, and what would happen after each interaction.
 
-
-### Entity Relationship Diagram:
+### Entity Relationship Diagram: Modeling the site's data
 
 #### Clothing Model
 * category - String
