@@ -1,6 +1,6 @@
 # Closet_App
 
-[wireframes.pdf](Documentation/wireframes.pdf)
+[wireframes.pdf](wireframes.pdf)
 
 
 ### Entity Relationship Diagram:
