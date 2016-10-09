@@ -53,6 +53,16 @@ footer {
 .index-main {
   margin-bottom: 5em;
   margin-left: 3em;
+  /*display: flex;
+  flex*/
+}
+
+.show-main {
+  margin-bottom: 5em;
+  margin-left: 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .index-section {
@@ -94,8 +104,8 @@ input {
 
 .show-wrapper {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .show-list {
