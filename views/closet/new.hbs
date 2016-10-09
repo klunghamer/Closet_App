@@ -5,25 +5,35 @@
   <p> Went shopping? Tell us more! </p>
 
   <form class="new-clothing" action='/closet' method='POST'>
-    <label for='category'>Category:</label>
-    <select name='category'>
-      <option value='jacket'>jacket</option>
-      <option value='dress'>dress</option>
-      <option value='pants'>pants</option>
-      <option value='shirt'>shirt</option>
-      <option value='shoes'>shoes</option>
-      <option value='socks'>socks</option>
-      <option value='accessories'>accessories</option>
-    </select>
-    <label for='brand'>Brand:</label>
-    <input name='brand'>
-    <label for='color'>Color:</label>
-    <input name='color'><br>
-    <label for='size'>Size:</label>
-    <input name='size'><br>
-    <label for='imageURL'>Image URL:</label>
-    <input type="text" name='imageURL'><br>
-    <button type='submit'>Yay Clothes!</button>
+    <div>
+      <label for='category'>Category:</label>
+      <select name='category'>
+        <option value='jacket'>jacket</option>
+        <option value='dress'>dress</option>
+        <option value='pants'>pants</option>
+        <option value='shirt'>shirt</option>
+        <option value='shoes'>shoes</option>
+        <option value='socks'>socks</option>
+        <option value='accessories'>accessories</option>
+      </select>
+    </div>
+    <div>
+      <label for='brand'>Brand:</label>
+      <input name='brand'>
+    </div>
+    <div>
+      <label for='color'>Color:</label>
+      <input name='color'>
+    </div>
+    <div>
+      <label for='size'>Size:</label>
+      <input name='size'>
+    </div>
+    <div>
+      <label for='imageURL'>Image URL:</label>
+      <input type="text" name='imageURL'>
+    </div>
+      <input type='submit' value='Yay Clothes!'>
   </form>
 </main>
 

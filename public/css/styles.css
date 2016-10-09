@@ -9,7 +9,6 @@ header, footer {
   padding: 0.5em;
   border-radius: 5px;
   border: 5px solid white;
-  width: 98vw;
   margin: 0 auto;
 }
 
@@ -17,12 +16,14 @@ header {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+  width: 93vw;
 }
 
 footer {
   position: fixed;
   bottom: 0;
   box-sizing: border-box;
+  width: 98vw;
 }
 
 .logo {
@@ -52,8 +53,6 @@ footer {
 .index-main {
   margin-bottom: 5em;
   margin-left: 3em;
-  /*display: flex;
-  flex*/
 }
 
 .show-main {
@@ -145,16 +144,31 @@ button {
 form {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
-.new-clothing, .delete-clothing {
-  width: 30vw;
+.new-clothing {
+  height: 30vh;
+  width: 40vw;
 }
 
-@media (max-width: 680px) {
+.edit-clothing {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+  width: 40vw;
+}
+
+@media (max-width: 400px) {
   img {
     height: 150px;
     width: 150px;
+    margin: .5em;
   }
 
   .main-header {
@@ -166,4 +180,7 @@ form {
     width: 4em;
   }
 
+  .home-img {
+    height: 10em;
+  }
 }
