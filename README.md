@@ -1,5 +1,8 @@
 # Closet_App
 
+[wireframes.pdf](Documentation/wireframes.pdf)
+
+
 ### Entity Relationship Diagram:
 
 #### Clothing Model
