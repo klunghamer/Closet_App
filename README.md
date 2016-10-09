@@ -2,6 +2,8 @@
 
 [wireframes.pdf](wireframes.pdf)
 
+[user stories](https://trello.com/b/Z6VBLVXy/custom-closets-user-stories)
+
 
 ### Entity Relationship Diagram:
 
