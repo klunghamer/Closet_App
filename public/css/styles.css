@@ -23,6 +23,7 @@ footer {
   position: fixed;
   bottom: 0;
   margin-bottom: 0em;
+  margin-left: 1em;
 }
 
 .logo {
@@ -44,6 +45,7 @@ footer {
 
 .home-img {
   width: 70vw;
+  height: 15em;
   margin-bottom: 3em;
 }
 
