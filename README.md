@@ -33,3 +33,8 @@ Wireframes were constructed to set up the original structure of the site and pla
 
 -**Javascript, HTML, CSS**
 -The app is written entirely in Javascript, and the structure and styling were implemented with HTML and CSS.
+
+### Unsolved Problems
+
+**AWS**
+-Multiple attempts were made to allow the user to upload and retrieve their own photos using AWS and multer, so that would be a feature to reevaluate later on.
