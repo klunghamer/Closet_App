@@ -28,17 +28,18 @@ footer {
 .logo {
   height: 6em;
   width: 6em;
-  /*margin-top: 3.5vh;*/
 }
 
-h1 {
-  /*font-size*/
+.main-header {
+  font-size: 2.5em;
 }
+
 
 .home-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-bottom: 5em;
 }
 
 .home-img {
@@ -49,10 +50,19 @@ h1 {
 
 .index-main {
   margin-bottom: 5em;
+  margin-left: 3em;
+}
+
+.index-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
 }
 
 .sign-out {
-  margin-top: 4vh;
+  margin-top: 4vw;
 }
 
 .closet-list {
@@ -64,6 +74,7 @@ img {
   width: 300px;
   height: 300px;
   border-radius: 10px;
+  margin: 1em;
 }
 
 a {
@@ -99,6 +110,7 @@ input {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
 
 .users {
@@ -131,4 +143,24 @@ form {
 
 .new-clothing, .delete-clothing {
   width: 30vw;
+}
+
+@media (max-width: 680px) {
+  img {
+    height: 150px;
+    width: 150px;
+  }
+
+  .main-header {
+  font-size: 1.5em;
+  }
+
+  .logo {
+    height: 4em;
+    width: 4em;
+  }
+
+  .signout {
+    /*margin-top: 6vh;*/
+  }
 }
