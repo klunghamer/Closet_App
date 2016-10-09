@@ -122,19 +122,14 @@ input {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
-  /*justify-content: center;*/
 }
 
 .users {
   white: blue;
   background-color: rgba(150, 158, 165, 0.7);
-  /*width: 15vw;*/
-  /*height: 5vh;*/
-  /*font-size: 3vw;*/
   padding: 1em;
   text-align: center;
   border-radius: 5px;
-  /*margin: 0 1em 0 1em;*/
 }
 
 .users:hover {
@@ -172,7 +167,4 @@ form {
     width: 4em;
   }
 
-  .signout {
-    /*margin-top: 6vh;*/
-  }
 }
