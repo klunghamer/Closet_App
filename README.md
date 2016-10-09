@@ -1,4 +1,4 @@
-# Closet_App
+# Custom Closets
 
 This application allows users to login, add photos, and manage their personal closets while giving them the capability to navigate through other users’ closets.
 
