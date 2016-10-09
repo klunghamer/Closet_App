@@ -26,10 +26,10 @@ Wireframes were constructed to set up the original structure of the site and pla
 ###Technologies
 
 -**Node.js**
--All of the content and web layout organization was designed using common industry practices.
+-Allowed the creation of a server and used various node modules written in Javascript.
 
 -**MongoDB, Mongoose**
--The structure of the board was built using CSS, which includes colors and shapes that constitute the game board and side elements.
+-The data models are stored in a NoSQL database, in which Mongoose was used to query and interact with that database(MongoDB).
 
 -**Javascript, HTML, CSS**
--Data organization and function of the game is implemented using Javascript, and the jQuery library is a usefull too to bring the game to life and manipulate the DOM.
+-The app is written entirely in Javascript, and the structure and styling were implemented with HTML and CSS.
