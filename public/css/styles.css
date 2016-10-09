@@ -168,7 +168,7 @@ form {
   img {
     height: 150px;
     width: 150px;
-    margin: .5em;
+    margin: .5em .15em .5em .15em;
   }
 
   .main-header {
