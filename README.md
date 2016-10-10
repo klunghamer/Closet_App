@@ -38,3 +38,9 @@ Wireframes were constructed to set up the original structure of the site and pla
 
 **AWS**
 -Multiple attempts were made to allow the user to upload and retrieve their own photos using AWS and multer, so that would be a feature to reevaluate later on.
+
+**Organization**
+-I would add a way to hide a clothing item category title if that user doesn't own any of those type of clothes. Eg. don't have a 'jackets' section if user doesn't own a jacket in their closet.
+
+**Users**
+-Make a route that allows to edit a user's password and create a way to delete a user.
