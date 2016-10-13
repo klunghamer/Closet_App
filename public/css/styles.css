@@ -45,9 +45,17 @@ footer {
   height: 50vh;
 }
 
+.home-heading {
+  text-align: center;
+}
+
+.guest {
+  color: #38CACC;
+}
+
 .home-img {
-  width: 70vw;
-  height: 15em;
+  width: 60vw;
+  height: 12em;
   margin-bottom: 3em;
 }
 
@@ -184,5 +192,6 @@ form {
 
   .home-img {
     height: 10em;
+    /*display:none;*/
   }
 }

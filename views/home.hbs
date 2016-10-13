@@ -1,7 +1,7 @@
 
 
 <main class="home-container">
-<h2>Log in or join to organize your closet!</h2>
+<h2 class="home-heading">Log in, join, or checkout closets as a <a href="/users" class="guest">guest</a></h2>
   <img class="home-img" src="http://i.imgur.com/kgwSkYb.jpg" alt="shopping"/>
 </main>
 
@@ -9,8 +9,8 @@
   <form action="/signup" method="POST">
   <div>
     <label for="text">Sign Up: </label>
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
+    <input type="text" name="username" placeholder="username" required>
+    <input type="password" name="password" placeholder="password" required>
     <button type="submit" name="submit"> Sign up</button>
   </div>
 </form><br>
