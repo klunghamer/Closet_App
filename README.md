@@ -31,8 +31,8 @@ Wireframes were constructed to set up the original structure of the site and pla
 -**MongoDB, Mongoose**
 -The data models are stored in a NoSQL database, in which Mongoose was used to query and interact with that database (MongoDB).
 
--**Javascript, HTML, CSS**
--The app is written entirely in Javascript, and the structure and styling were implemented with HTML and CSS.
+-**JavaScript, HTML, CSS**
+-The app is written entirely in JavaScript, and the structure and styling were implemented with HTML and CSS.
 
 ### Unsolved Problems
 
